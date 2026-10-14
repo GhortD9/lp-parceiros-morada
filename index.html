@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Parceiros Oficiais e Integrações | Morada.ai</title>
+<meta name="description" content="CRMs, ERPs, financeiras, agências e implantadores que conhecem a rotina de incorporadoras e loteadoras, conectados à Morada.ai.">
+<meta name="theme-color" content="#020817">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="assets/img/hero.jpg" media="(min-width: 761px)">
+<link rel="preload" as="image" href="assets/img/hero-sm.jpg" media="(max-width: 760px)">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+
+<!-- ============ NAV ============ -->
+<header class="nav" id="nav">
+  <div class="nav__in">
+    <a class="brand" href="#topo" aria-label="Morada.ai Partners, início">
+      <svg class="brand__logo" viewBox="58 46 610 112" aria-hidden="true"><use href="#logo-morada"/></svg>
+      <span class="brand__sep" aria-hidden="true"></span>
+      <span class="brand__tag">Partners</span>
+    </a>
+    <nav class="nav__links" aria-label="Seções">
+      <a href="#jornada">Jornada</a>
+      <a href="#integracoes">Integrações</a>
+      <a href="#diretorio">Parceiros</a>
+      <a href="#meta">Meta</a>
+    </nav>
+    <div class="nav__cta">
+      <a class="btn btn--ghost btn--sm" href="#seja-parceiro">Seja parceiro</a>
+      <a class="btn btn--primary btn--sm" data-form="contato" href="#">Falar com especialista</a>
+    </div>
+    <button class="nav__burger" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu"><span></span><span></span></button>
+  </div>
+  <div class="menu" id="menu" hidden>
+    <a href="#jornada">Jornada</a>
+    <a href="#integracoes">Integrações</a>
+    <a href="#diretorio">Parceiros</a>
+    <a href="#meta">Meta Business Partner</a>
+    <a href="#seja-parceiro">Seja parceiro</a>
+    <a class="btn btn--primary" data-form="contato" href="#">Falar com especialista</a>
+  </div>
+</header>
+
+<main id="conteudo">
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="topo">
+  <div class="hero__media" aria-hidden="true">
+    <picture>
+      <source media="(max-width: 760px)" srcset="assets/img/hero-sm.jpg">
+      <img src="assets/img/hero.jpg" alt="" class="hero__img">
+    </picture>
+    <div class="hero__shade"></div>
+    <canvas class="hero__net" id="net"></canvas>
+  </div>
+
+  <div class="wrap hero__in">
+    <p class="eyebrow reveal"><span class="dot"></span>Ecossistema oficial Morada.ai</p>
+    <h1 class="hero__title" data-split>
+      Tudo o que sua operação já usa, <em>agora na mesma conversa.</em>
+    </h1>
+    <p class="hero__lead reveal" style="--d:.5s">
+      CRMs, ERPs, financeiras, agências e implantadores que conhecem a rotina de incorporadoras e loteadoras, conectados à IA que atende, qualifica e vende. O lead não se perde entre sistemas, e o seu time assume com o histórico na mão.
+    </p>
+    <div class="hero__actions reveal" style="--d:.65s">
+      <a class="btn btn--primary btn--lg" href="#diretorio">Encontrar um parceiro <i class="arr" aria-hidden="true"></i></a>
+      <a class="btn btn--glass btn--lg" data-form="contato" href="#">Falar com especialista</a>
+    </div>
+  </div>
+
+  <!-- feed de eventos ao vivo -->
+  <div class="feed" aria-hidden="true">
+    <p class="feed__head"><span class="pulse"></span>Acontecendo agora nas integrações</p>
+    <ol class="feed__list" id="feed"></ol>
+  </div>
+
+  <div class="wrap hero__stats reveal" style="--d:.8s">
+    <dl class="stats">
+      <div><dt><span data-count="22">22</span></dt><dd>parceiros oficiais</dd></div>
+      <div><dt><span data-count="5">5</span></dt><dd>integrações nativas</dd></div>
+      <div><dt><span data-count="3">3</span></dt><dd>etapas da jornada: pré-venda, conversão e pós-venda</dd></div>
+      <div class="stats__meta"><dt><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-meta"/></svg></dt><dd>Meta Business Partner</dd></div>
+    </dl>
+  </div>
+  <a class="scroll-cue" href="#marquee" aria-label="Rolar para baixo"><span></span></a>
+</section>
+
+<!-- ============ MARQUEE ============ -->
+<section class="marquee" id="marquee" aria-label="Parceiros oficiais">
+  <p class="marquee__label">Parceiros oficiais que já conversam com a Morada.ai</p>
+  <div class="marquee__row" data-row="a"><div class="marquee__track"></div></div>
+  <div class="marquee__row marquee__row--rev" data-row="b"><div class="marquee__track"></div></div>
+</section>
+
+<!-- ============ JORNADA ============ -->
+<section class="journey" id="jornada">
+  <div class="wrap">
+    <header class="sec-head">
+      <p class="eyebrow reveal"><span class="dot"></span>A jornada</p>
+      <h2 class="h2 reveal">Da primeira mensagem <em>à entrega das chaves.</em></h2>
+      <p class="lead reveal">Cada parceiro cuida de uma etapa. A Morada.ai costura todas: o lead não se perde entre sistemas, e cada time recebe o que precisa para agir.</p>
+    </header>
+
+    <div class="journey__grid">
+      <div class="journey__stage" aria-hidden="true">
+        <div class="stage">
+          <figure class="stage__img is-on" data-step="0"><img src="assets/img/mia.jpg" alt="" loading="lazy"></figure>
+          <figure class="stage__img" data-step="1"><img src="assets/img/sales.jpg" alt="" loading="lazy"></figure>
+          <figure class="stage__img" data-step="2"><img src="assets/img/iago.jpg" alt="" loading="lazy"></figure>
+          <div class="stage__chip"><span class="stage__n">01</span><span class="stage__p">Mia · pré-venda</span></div>
+          <div class="stage__rail"><i></i></div>
+        </div>
+      </div>
+
+      <div class="journey__steps" id="steps"></div>
+    </div>
+
+    <aside class="base reveal">
+      <div class="base__txt">
+        <p class="eyebrow eyebrow--sm">A base de tudo · Implantação</p>
+        <p class="base__title">Quem coloca a Morada.ai no ar, com processo e adoção do time.</p>
+      </div>
+      <div class="base__logos" id="base-logos"></div>
+    </aside>
+  </div>
+</section>
+
+<!-- ============ INTEGRAÇÕES ============ -->
+<section class="integ" id="integracoes">
+  <div class="wrap">
+    <header class="sec-head sec-head--split">
+      <div>
+        <p class="eyebrow reveal"><span class="dot"></span>Integrações nativas</p>
+        <h2 class="h2 reveal">Cinco sistemas. <em>Uma conversa contínua.</em></h2>
+      </div>
+      <p class="lead reveal">Nas integrações nativas, a Morada.ai lê e escreve direto no sistema que o seu time já usa. Escolha um para ver o que acontece nos bastidores.</p>
+    </header>
+
+    <div class="integ__ui reveal">
+      <div class="integ__tabs" role="tablist" aria-label="Sistemas integrados" id="integ-tabs"></div>
+      <div class="integ__panel" id="integ-panel" role="tabpanel" tabindex="0">
+        <div class="link">
+          <div class="link__node link__node--m"><svg viewBox="58 46 610 112" aria-label="Morada.ai"><use href="#logo-morada"/></svg></div>
+          <div class="link__wire"><svg viewBox="0 0 300 40" preserveAspectRatio="none" aria-hidden="true"><path d="M0 20 H300" class="w-base"/><path d="M0 20 H300" class="w-flow"/></svg><span class="link__badge">API · Webhooks</span></div>
+          <div class="link__node link__node--p"><img id="integ-logo" src="" alt=""></div>
+        </div>
+        <div class="integ__body" id="integ-body"></div>
+        <div class="integ__foot">
+          <p id="integ-sum"></p>
+          <a class="btn btn--primary" id="integ-cta" href="#">Falar com especialista <i class="arr" aria-hidden="true"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DIRETÓRIO ============ -->
+<section class="dir" id="diretorio" data-nav="light">
+  <div class="wrap">
+    <header class="sec-head sec-head--split">
+      <div>
+        <p class="eyebrow eyebrow--dark reveal"><span class="dot"></span>Diretório</p>
+        <h2 class="h2 reveal">Encontre o parceiro certo <em>para a sua operação.</em></h2>
+      </div>
+      <p class="lead reveal">22 parceiros oficiais em sete frentes. Filtre, compare e fale com um especialista.</p>
+    </header>
+
+    <div class="filters" id="filters">
+      <label class="search">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        <input type="search" id="q" placeholder="Buscar por nome ou solução" autocomplete="off" aria-label="Buscar parceiro">
+        <kbd>/</kbd>
+      </label>
+      <div class="chips" role="group" aria-label="Filtrar por frente" id="chips"></div>
+    </div>
+
+    <p class="dir__count" aria-live="polite" id="count"></p>
+    <ul class="grid" id="grid"></ul>
+    <div class="empty" id="empty" hidden>
+      <p>Nenhum parceiro com esse termo.</p>
+      <button class="btn btn--ink-ghost" id="clear">Limpar busca e filtro</button>
+    </div>
+  </div>
+</section>
+
+<!-- ============ META ============ -->
+<section class="meta" id="meta">
+  <div class="wrap">
+    <div class="meta__card reveal">
+      <div class="meta__glow" aria-hidden="true"></div>
+      <div class="meta__head">
+        <div class="meta__badge"><img src="assets/logos/meta-business-partner.png" alt="Meta Business Partner"></div>
+        <div>
+          <p class="eyebrow"><span class="dot"></span>Mídia</p>
+          <h2 class="h2 h2--sm">Meta Business Partner.</h2>
+          <p class="lead">A Morada.ai trabalha alinhada às práticas e aos recursos da Meta. Na prática: diagnóstico mais rápido, menos tentativa e erro, e testes medidos do mesmo jeito.</p>
+        </div>
+      </div>
+      <ul class="pillars">
+        <li class="reveal" style="--d:.05s"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h10M4 18h6"/></svg><h3>Padrão de operação</h3><p>Campanhas e rotinas de análise com o funil claro e aprendizado consistente.</p></li>
+        <li class="reveal" style="--d:.12s"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 3 5 14h6l-1 7 8-11h-6z"/></svg><h3>Ciclos mais curtos</h3><p>Referências e processos que aceleram teste, otimização e melhoria contínua.</p></li>
+        <li class="reveal" style="--d:.19s"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg><h3>Decisão com menos ruído</h3><p>Indicadores que mostram o que realmente move visita e venda.</p></li>
+        <li class="reveal" style="--d:.26s"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6z"/><path d="m9 12 2 2 4-4"/></svg><h3>Escala com governança</h3><p>Base sólida para crescer investimento com previsibilidade e qualidade.</p></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SEJA PARCEIRO ============ -->
+<section class="join" id="seja-parceiro">
+  <div class="join__media" aria-hidden="true"><img src="assets/img/parceria.jpg" alt="" loading="lazy"></div>
+  <div class="wrap join__in">
+    <p class="eyebrow reveal"><span class="dot"></span>Seja parceiro</p>
+    <h2 class="h2 reveal">Sua empresa atende <em>incorporadoras e loteadoras?</em></h2>
+    <p class="lead reveal">Entre para o ecossistema da Morada.ai. Conecte sua solução e apareça para quem procura parceiro nesta página.</p>
+    <a class="btn btn--primary btn--lg reveal" data-form="contato" href="#">Quero ser parceiro <i class="arr" aria-hidden="true"></i></a>
+  </div>
+</section>
+
+<!-- ============ FECHAMENTO ============ -->
+<section class="close">
+  <div class="close__a" aria-hidden="true"><img src="assets/letra-a-line.png" alt=""></div>
+  <div class="wrap close__in">
+    <p class="close__title" data-split>Parceiros certos, dados claros, <em>execução contínua.</em></p>
+    <div class="close__actions reveal">
+      <a class="btn btn--primary btn--lg" data-form="contato" href="#">Falar com especialista <i class="arr" aria-hidden="true"></i></a>
+      <a class="btn btn--glass btn--lg" href="#diretorio">Ver parceiros</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap foot__in">
+    <a class="brand" href="#topo" aria-label="Morada.ai Partners, início">
+      <svg class="brand__logo" viewBox="58 46 610 112" aria-hidden="true"><use href="#logo-morada"/></svg>
+      <span class="brand__sep" aria-hidden="true"></span>
+      <span class="brand__tag">Partners</span>
+    </a>
+    <p>© 2026 Morada.ai. Todos os direitos reservados.</p>
+    <a href="https://morada.ai" target="_blank" rel="noopener">morada.ai</a>
+  </div>
+</footer>
+
+<!-- ============ DRAWER ============ -->
+<div class="scrim" id="scrim" hidden></div>
+<aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-labelledby="dr-name" hidden>
+  <button class="drawer__x" id="dr-close" aria-label="Fechar"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+  <div class="drawer__plate"><img id="dr-logo" src="" alt=""></div>
+  <p class="drawer__cat" id="dr-cat"></p>
+  <h3 class="drawer__name" id="dr-name"></h3>
+  <p class="drawer__short" id="dr-short"></p>
+  <p class="drawer__long" id="dr-long"></p>
+  <dl class="drawer__meta">
+    <div><dt>Etapa da jornada</dt><dd id="dr-stage"></dd></div>
+    <div><dt>Integração</dt><dd id="dr-int"></dd></div>
+  </dl>
+  <div class="drawer__actions">
+    <a class="btn btn--primary btn--lg" id="dr-cta" href="#">Falar com especialista parceiro <i class="arr" aria-hidden="true"></i></a>
+    <a class="btn btn--ink-ghost" id="dr-integ" href="#integracoes" hidden>Ver o que a integração faz</a>
+  </div>
+</aside>
+
+<!-- ============ SPRITES ============ -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <g id="logo-morada">
+      <polygon fill="currentColor" points="103.1 108.97 79.45 67.08 59.99 67.08 59.99 144.77 75.6 144.77 75.6 89.94 98.57 130.81 107.51 130.81 130.48 89.94 130.48 144.77 146.1 144.77 146.1 67.08 126.86 67.08 103.1 108.97"/>
+      <path fill="currentColor" d="M194.72,65.73c-23.530,0-41.18,17.34-41.18,40.2s17.65,40.2,41.18,40.2,41.19-17.34,41.19-40.2-17.76-40.2-41.19-40.2ZM194.72,131.15c-14.37,0-25.23-10.81-25.230-25.22s10.86-25.22,25.23-25.22,25.12,10.81,25.12,25.22-10.86,25.22-25.12,25.22Z"/>
+      <path fill="currentColor" d="M426.93,67.08h-30.55v16.15c-3.92,1.63-13.82,5.85-14.52,6.07-1.24.4-2.5.81-3.79,1.24-3.68-15.48-10.34-33.68-22.060-41.4l-1.13-.62c-14.32-6.32-24.87,8.26-29.95,15.26l-.44.61c-12.6,18.19-19.7,39.81-21.6,65.75h-.05c-4.870,0-8.83-2.03-11.77-6.19l-5.43-7.77c11.09-2.82,18.78-11.94,18.78-23.65,0-14.52-11.43-25.45-26.48-25.45h-34.74v77.69h15.61v-27.7h8.71l8.94,14.19c5.09,9.12,13.24,13.51,24.67,13.51h4.87v-.03h0c6.27,0,11.67-5.13,12.05-11.39,1.47-24.11,7.74-43.9,18.99-60.14l.35-.48c2.38-3.28,7.94-10.73,10.8-10.34,6.11,4.66,11.75,17.23,15.38,33.41-16.5,6.88-31.58,17.39-30.2,37.6.48,8,3.99,15.39,9.41,19.76,3.47,2.81,7.52,4.26,11.97,4.26,1.05,0,2.13-.08,3.22-.24,18.54-3.38,26.17-24.02,24.14-42.59-.17-1.73-.52-4.86-1.13-8.87,1.82-.62,3.7-1.24,5.62-1.86,1.64-.53,5.5-2.04,9.74-3.72v44.63h30.55c22.74,0,39.83-16.67,39.83-38.84s-17.09-38.84-39.83-38.84ZM277.63,103.56h-18.78v-21.84h18.78c6.11,0,10.75,4.73,10.75,10.92s-4.64,10.92-10.75,10.92ZM355.49,142.08c-1.18.18-2.06-.07-2.98-.81-2-1.61-3.54-5.22-3.75-8.84-.67-9.81,6.19-15.92,17.55-21.09.2,1.59.38,3.2.54,4.83.99,9.04-1.29,24.07-11.36,25.91ZM426.6,130.13h-14.6v-48.41h14.6c13.8,0,24.1,10.36,24.1,24.2s-10.3,24.2-24.1,24.2Z"/>
+      <path fill="currentColor" d="M510.98,67.08h-18.45l-30.1,77.69h16.86l5.43-15.09h33.6l5.54,15.09h17.09l-29.990-77.69ZM490.05,115.38l11.54-31.19,11.43,31.19h-22.97Z"/>
+      <circle cx="610.91" cy="101.79" r="54.5" fill="#0073ff"/>
+      <path fill="#fff" d="M597.31,79.21h10.19l16.57,42.96h-9.44l-3.06-8.340h-18.58l-3,8.34h-9.32l16.64-42.96ZM608.63,105.92l-6.32-17.25-6.38,17.25h12.7Z"/>
+      <path fill="#fff" d="M628.54,79.21h8.63v42.96h-8.63v-42.96Z"/>
+    </g>
+    <symbol id="i-meta" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" d="M12 2.8l2.2 1.6 2.7-.1.9 2.6 2.2 1.6-.8 2.6.8 2.6-2.2 1.6-.9 2.6-2.7-.1L12 21.2l-2.2-1.6-2.7.1-.9-2.6L4 15.5l.8-2.6L4 10.3l2.2-1.6.9-2.6 2.7.1z"/><path fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" d="m8.8 12 2.2 2.2 4.2-4.4"/></symbol>
+  </defs>
+</svg>
+
+<script src="assets/data.js"></script>
+<script src="assets/app.js"></script>
+</body>
+</html>
