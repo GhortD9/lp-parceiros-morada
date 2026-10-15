@@ -34,7 +34,7 @@
     </nav>
     <div class="nav__cta">
       <a class="btn btn--ghost btn--sm" href="#seja-parceiro">Seja parceiro</a>
-      <a class="btn btn--primary btn--sm" data-form="contato" href="#">Falar com especialista</a>
+      <a class="btn btn--primary btn--sm" data-form="contato" href="#contato">Falar com especialista</a>
     </div>
     <button class="nav__burger" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu"><span></span><span></span></button>
   </div>
@@ -44,7 +44,7 @@
     <a href="#diretorio">Parceiros</a>
     <a href="#meta">Meta Business Partner</a>
     <a href="#seja-parceiro">Seja parceiro</a>
-    <a class="btn btn--primary" data-form="contato" href="#">Falar com especialista</a>
+    <a class="btn btn--primary" data-form="contato" href="#contato">Falar com especialista</a>
   </div>
 </header>
 
@@ -71,7 +71,7 @@
     </p>
     <div class="hero__actions reveal" style="--d:.65s">
       <a class="btn btn--primary btn--lg" href="#diretorio">Encontrar um parceiro <i class="arr" aria-hidden="true"></i></a>
-      <a class="btn btn--glass btn--lg" data-form="contato" href="#">Falar com especialista</a>
+      <a class="btn btn--glass btn--lg" data-form="contato" href="#contato">Falar com especialista</a>
     </div>
   </div>
 
@@ -219,7 +219,7 @@
     <p class="eyebrow reveal"><span class="dot"></span>Seja parceiro</p>
     <h2 class="h2 reveal">Sua empresa atende <em>incorporadoras e loteadoras?</em></h2>
     <p class="lead reveal">Entre para o ecossistema da Morada.ai. Conecte sua solução e apareça para quem procura parceiro nesta página.</p>
-    <a class="btn btn--primary btn--lg reveal" data-form="contato" href="#">Quero ser parceiro <i class="arr" aria-hidden="true"></i></a>
+    <a class="btn btn--primary btn--lg reveal" data-form="parceiro" href="#contato">Quero ser parceiro <i class="arr" aria-hidden="true"></i></a>
   </div>
 </section>
 
@@ -229,7 +229,7 @@
   <div class="wrap close__in">
     <p class="close__title" data-split>Parceiros certos, dados claros, <em>execução contínua.</em></p>
     <div class="close__actions reveal">
-      <a class="btn btn--primary btn--lg" data-form="contato" href="#">Falar com especialista <i class="arr" aria-hidden="true"></i></a>
+      <a class="btn btn--primary btn--lg" data-form="contato" href="#contato">Falar com especialista <i class="arr" aria-hidden="true"></i></a>
       <a class="btn btn--glass btn--lg" href="#diretorio">Ver parceiros</a>
     </div>
   </div>
@@ -268,6 +268,50 @@
   </div>
 </aside>
 
+<!-- ============ FORMULÁRIO (HubSpot) ============ -->
+<div class="scrim" id="lead-scrim" hidden></div>
+<div class="lf" id="lead" role="dialog" aria-modal="true" aria-labelledby="lead-title" hidden>
+  <button class="lf__x" type="button" id="lead-close" aria-label="Fechar"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+  <div class="lf__head">
+    <p class="lf__eyebrow" id="lead-eyebrow">Falar com especialista</p>
+    <h3 class="lf__title" id="lead-title">Fale com um especialista</h3>
+    <p class="lf__sub" id="lead-sub">Conte rapidamente sobre a sua operação. Nosso time entra em contato.</p>
+  </div>
+  <form class="lf__form" id="lead-form" novalidate>
+    <div class="fld fld--full"><label for="l-nome">Nome e sobrenome</label><input id="l-nome" name="nome" type="text" autocomplete="name" required></div>
+    <div class="fld"><label for="l-email">E-mail corporativo</label><input id="l-email" name="email" type="email" autocomplete="email" inputmode="email" required></div>
+    <div class="fld"><label for="l-tel">Telefone com DDD</label><input id="l-tel" name="telefone" type="tel" autocomplete="tel-national" inputmode="tel" placeholder="(00) 00000-0000" required></div>
+    <div class="fld"><label for="l-empresa">Empresa</label><input id="l-empresa" name="empresa" type="text" autocomplete="organization" required></div>
+    <div class="fld"><label for="l-cargo">Cargo</label>
+      <select id="l-cargo" name="cargo" required>
+        <option value="" disabled selected hidden>Selecione</option>
+        <option>Diretor(a)</option><option>Gerente</option><option>Coordenador(a)</option><option>Analista</option><option>Corretor(a)</option><option>Outro</option>
+      </select></div>
+    <div class="fld fld--full"><label for="l-tipo">Tipo de empresa</label>
+      <select id="l-tipo" name="tipo_da_empresa" required>
+        <option value="" disabled selected hidden>Selecione</option>
+        <option value="Incorporadora">Incorporadora</option>
+        <option value="Loteadora">Loteadora</option>
+        <option value="Construtora">Construtora</option>
+        <option value="Construtora + Incorporadora">Construtora + Incorporadora</option>
+        <option value="Imobiliária">Imobiliária</option>
+        <option value="Corretor autônomo">Corretor autônomo</option>
+        <option value="Agência de Marketing">Agência de marketing</option>
+        <option value="Investidor">Investidor</option>
+        <option value="Imprensa">Imprensa</option>
+        <option value="Outro">Outro</option>
+      </select></div>
+    <label class="consent fld--full"><input type="checkbox" id="l-ok" name="consentimento" required><span>Ao enviar, concordo com a <a href="https://morada.ai/politica-de-privacidade/" target="_blank" rel="noopener">Política de Privacidade</a> da Morada.ai.</span></label>
+    <button class="btn btn--primary btn--lg lf__go" type="submit" id="lead-go">Quero uma demonstração <i class="arr" aria-hidden="true"></i></button>
+  </form>
+  <div class="lf__done" id="lead-done" tabindex="-1" hidden>
+    <span class="lf__ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span>
+    <h3 class="lf__title" id="lead-done-t">Recebemos.</h3>
+    <p class="lf__sub" id="lead-done-p">Nosso time entra em contato em breve.</p>
+    <button class="btn btn--ink-ghost" type="button" id="lead-ok">Voltar para a página</button>
+  </div>
+</div>
+
 <!-- ============ SPRITES ============ -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <defs>
@@ -287,5 +331,6 @@
 <script src="assets/data.js"></script>
 <script src="assets/logo-ar.js"></script>
 <script src="assets/app.js"></script>
+<script src="assets/lead.js"></script>
 </body>
 </html>

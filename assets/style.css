@@ -325,6 +325,45 @@ em{font-style:normal}
 .more{margin-top:12px;display:none;align-items:center;gap:8px;height:40px;padding:0 16px;border-radius:999px;border:1px solid var(--line-2);font-size:14px;color:var(--ice)}
 .more:hover{background:rgba(255,255,255,.06)}
 
+/* ---------- formulário (janela) ---------- */
+.lf{position:fixed;z-index:170;left:50%;top:50%;width:min(600px,calc(100vw - 24px));max-height:calc(100dvh - 24px);overflow:auto;padding:36px 36px 32px;border-radius:28px;background:#fff;color:var(--p-ink);box-shadow:0 50px 120px -30px rgba(0,0,0,.6);transform:translate(-50%,-46%) scale(.97);opacity:0;transition:transform .6s var(--ease),opacity .4s var(--ease)}
+.lf.is-open{transform:translate(-50%,-50%);opacity:1}
+#lead-scrim{z-index:165}
+.lf__x{position:absolute;right:18px;top:18px;width:40px;height:40px;border-radius:50%;background:var(--paper);display:grid;place-items:center;transition:transform .4s var(--ease),background .2s}
+.lf__x:hover{transform:rotate(90deg);background:#e7ebf3}
+.lf__x svg{width:16px;height:16px;stroke:var(--p-ink);stroke-width:2;stroke-linecap:round;fill:none}
+.lf__head{margin:0 0 24px;padding-right:48px}
+.lf__eyebrow{margin:0 0 10px;font-size:12px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--royal)}
+.lf__title{margin:0 0 8px;font-size:clamp(26px,3vw,32px);font-weight:400;letter-spacing:-.03em;line-height:1.08;text-wrap:balance}
+.lf__sub{margin:0;font-size:15.5px;color:var(--p-mute)}
+.lf__form{display:grid;grid-template-columns:1fr 1fr;gap:14px 14px}
+.fld{display:flex;flex-direction:column;gap:6px;min-width:0}
+.fld--full{grid-column:1/-1}
+.fld label{font-size:13px;font-weight:500;color:var(--p-ink)}
+.fld input,.fld select{height:50px;width:100%;padding:0 14px;border-radius:12px;border:1px solid var(--p-line);background:#f8fafc;font:inherit;font-size:16px;font-weight:400;color:var(--p-ink);outline:0;transition:border-color .2s,box-shadow .2s,background .2s;-webkit-appearance:none;appearance:none}
+.fld select{padding-right:40px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2356627d' stroke-width='2' stroke-linecap='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;background-size:16px}
+.fld select:invalid{color:#8b95ab}
+.fld input::placeholder{color:#a3acbe}
+.fld input:focus,.fld select:focus{border-color:var(--royal);background-color:#fff;box-shadow:0 0 0 4px rgba(0,115,255,.12)}
+.fld.is-invalid input,.fld.is-invalid select{border-color:#e5484d;background-color:#fff7f7}
+.fld__err{margin:0;font-size:12.5px;color:#d93036}
+.consent{display:grid;grid-template-columns:20px 1fr;gap:10px;align-items:start;font-size:13.5px;color:var(--p-mute);line-height:1.45;margin-top:4px}
+.consent input{width:20px;height:20px;margin:0;accent-color:var(--royal)}
+.consent a{color:var(--royal);text-decoration:underline;text-underline-offset:2px}
+.consent .fld__err{grid-column:2}
+.lf__go{grid-column:1/-1;width:100%;margin-top:6px}
+.lf__go:disabled{opacity:.7;cursor:progress}
+.lf__err{grid-column:1/-1;margin:0;padding:12px 14px;border-radius:12px;background:#fff1f1;color:#b4232a;font-size:14px}
+.lf__done{text-align:center;padding:24px 8px 8px;outline:0}
+.lf__done .lf__sub{max-width:40ch;margin:0 auto 24px}
+.lf__ico{display:grid;place-items:center;width:64px;height:64px;margin:0 auto 20px;border-radius:50%;background:rgba(0,115,255,.1)}
+.lf__ico svg{width:30px;height:30px;fill:none;stroke:var(--royal);stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+@media (max-width:560px){
+  .lf{left:8px;right:8px;top:auto;bottom:8px;width:auto;max-height:92dvh;padding:28px 20px 22px;border-radius:24px;transform:translateY(calc(100% + 16px));opacity:1}
+  .lf.is-open{transform:none}
+  .lf__form{grid-template-columns:1fr}
+}
+
 /* ---------- logos (PNG transparente, tamanho óptico) ---------- */
 .lg{display:block;flex:none;width:auto;max-width:100%;height:min(calc(var(--s,48px) * var(--k,.7)), var(--mh,40px), calc(var(--mw,120px) / var(--ar,2)));object-fit:contain}
 

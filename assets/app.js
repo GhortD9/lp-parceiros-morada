@@ -12,12 +12,9 @@
   const lg = (p, alt = "", lazy = true) => { const f = fit(p.logo);
     return `<img class="lg" src="${logo(p)}" alt="${alt}" style="--ar:${f.ar};--k:${f.k}"${lazy ? ' loading="lazy"' : ""}>`; };
   const setFit = (img, name) => { const f = fit(name); img.style.setProperty("--ar", f.ar); img.style.setProperty("--k", f.k); };
-  const formUrl = slug => FORM_BASE + (slug ? `/parceiros/${slug}` : "/contato");
   const check = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>';
   const esc = s => s.replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
 
-  /* ---------- links de formulário ---------- */
-  $$('[data-form="contato"]').forEach(a => { a.href = formUrl(); a.target = "_blank"; a.rel = "noopener"; });
 
   /* ---------- texto em palavras (split) ---------- */
   $$("[data-split]").forEach(el => {
@@ -102,7 +99,7 @@
     $$(".mod", body).forEach(m => { if ($(".more", m)) m.classList.add("is-clamped"); });
     const total = g.modules.reduce((a, m) => a + m.items.length, 0);
     $("#integ-sum").textContent = `${total} funcionalidades conectando a Morada.ai ao ${g.name}.`;
-    const cta = $("#integ-cta"); cta.href = formUrl(g.slug); cta.target = "_blank"; cta.rel = "noopener";
+    const cta = $("#integ-cta"); cta.href = "#contato"; cta.dataset.form = "contato"; cta.dataset.partner = g.slug;
     cta.firstChild.textContent = `Falar com especialista ${g.name} `;
   };
   body.addEventListener("click", e => { const b = e.target.closest(".more"); if (b) b.closest(".mod").classList.remove("is-clamped"); });
@@ -184,7 +181,7 @@
     $("#dr-long").hidden = p.long === p.short;
     $("#dr-stage").textContent = STAGES[p.stage];
     $("#dr-int").textContent = p.integ ? "Nativa com a Morada.ai" : "Parceria oficial";
-    const cta = $("#dr-cta"); cta.href = formUrl(p.slug); cta.target = "_blank"; cta.rel = "noopener";
+    const cta = $("#dr-cta"); cta.href = "#contato"; cta.dataset.form = "contato"; cta.dataset.partner = p.slug;
     const ib = $("#dr-integ"); ib.hidden = !p.integ; ib.dataset.slug = p.slug;
     drawer.hidden = scrim.hidden = false;
     requestAnimationFrame(() => requestAnimationFrame(() => { drawer.classList.add("is-open"); scrim.classList.add("is-open"); }));

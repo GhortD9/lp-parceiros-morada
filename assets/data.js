@@ -1,7 +1,17 @@
-/* Conteúdo da LP de Parceiros — edite aqui, não no app.js.
-   FORM_BASE: onde vivem os formulários de contato (/contato e /parceiros/<slug>).
-   Se esta LP substituir o projeto do v0 no mesmo domínio, troque por "" (caminho relativo). */
-window.FORM_BASE = "https://v0-official-partners.vercel.app";
+/* Conteúdo da LP de Parceiros — edite aqui, não no app.js. */
+
+/* Formulário → HubSpot (mesmo formato das LPs do CV e do Diagnóstico de IA).
+   HUBSPOT_FORM_ID vazio = envio simulado: nada sai da página (aparece um aviso no console). */
+window.LEAD_CONFIG = {
+  HUBSPOT_PORTAL_ID: "41468942",
+  HUBSPOT_FORM_ID: "c2119563-dd07-462c-b640-b19328699490",  // "Landing Page Parceiros Oficiais - Contato" (clone do form do CV, 15/10/2026)
+  CANAL: "Landing Page Parceiros Oficiais - Contato",       // morada_last_touch_channel padrão (= nome do formulário)
+  PONTO: "lp_parceiros_especialista",                        // + "_<parceiro>" quando vem de um card/integração
+  PONTO_SEJA_PARCEIRO: "lp_parceiros_seja_parceiro",
+  GTM_ID: "GTM-WKLLFZGF",
+  HOSTS_PRODUCAO: /(^|\.)morada\.ai$/i,                     // GTM e rastreio do HubSpot só carregam aqui
+  TIMEOUT: 6000
+};
 
 window.CATEGORIES = [
   { id: "crm",         label: "CRM" },
