@@ -6,6 +6,12 @@
   const P = Object.fromEntries(PARTNERS.map(p => [p.slug, p]));
   const CAT = Object.fromEntries(CATEGORIES.map(c => [c.id, c.label]));
   const logo = p => `assets/logos/${p.logo}.png`;
+  /* tamanho óptico: logo quadrado e logo largo com o mesmo peso visual (ver .lg no CSS) */
+  const fit = name => { const m = (window.LOGO_AR || {})[name] || { ar: 2, d: .3 };
+    return { ar: m.ar, k: (Math.pow(m.ar, -.5) * Math.pow(.3 / Math.max(m.d, .08), .12)).toFixed(3) }; };
+  const lg = (p, alt = "", lazy = true) => { const f = fit(p.logo);
+    return `<img class="lg" src="${logo(p)}" alt="${alt}" style="--ar:${f.ar};--k:${f.k}"${lazy ? ' loading="lazy"' : ""}>`; };
+  const setFit = (img, name) => { const f = fit(name); img.style.setProperty("--ar", f.ar); img.style.setProperty("--k", f.k); };
   const formUrl = slug => FORM_BASE + (slug ? `/parceiros/${slug}` : "/contato");
   const check = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>';
   const esc = s => s.replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
@@ -38,15 +44,15 @@
   /* ---------- marquee ---------- */
   const order = ["cv-crm","sienge","facilita-crm","dommus","senior-sistemas","resolutpay","studio-61","vmv-group","play","atta-3d","multidados",
                  "psa-sistemas","solomo","imovel-p","squad-realty","pzr-sistemas","skyline-ip","cub","upload","facilitat","delta3-solucoes","arquiteto-de-bolso"];
-  const half = Math.ceil(order.length / 2);
-  [["a", order.slice(0, half)], ["b", order.slice(half)]].forEach(([row, list]) => {
-    const html = list.map(s => `<div class="plate"><img src="${logo(P[s])}" alt="${esc(P[s].name)}" loading="lazy"></div>`).join("");
-    const t = $(`[data-row="${row}"] .marquee__track`);
-    t.innerHTML = html + html.replace(/alt="[^"]*"/g, 'alt="" aria-hidden="true"');
-  });
+  {
+    const html = order.map(s => `<div class="plate">${lg(P[s], esc(P[s].name), false)}</div>`).join("");
+    $(".marquee__track").innerHTML = html + html.replace(/alt="[^"]*"/g, 'alt="" aria-hidden="true"');
+  }
+
+  setFit($(".meta__badge img"), "meta-business-partner");
 
   /* ---------- jornada ---------- */
-  const mini = s => `<button class="mini" data-open="${s}" aria-label="${esc(P[s].name)}: ver detalhes"><img src="${logo(P[s])}" alt="" loading="lazy"></button>`;
+  const mini = s => `<button class="mini" data-open="${s}" aria-label="${esc(P[s].name)}: ver detalhes">${lg(P[s])}</button>`;
   $("#steps").innerHTML = JOURNEY.map((j, k) => `
     <article class="step${k === 0 ? " is-on" : ""}" data-step="${k}">
       <figure class="step__img"><img src="assets/img/${j.img}.jpg" alt="" loading="lazy"></figure>
@@ -76,7 +82,7 @@
   tabs.innerHTML = INTEGRATIONS.map((g, i) => {
     const n = g.modules.reduce((a, m) => a + m.items.length, 0);
     return `<button class="tab" role="tab" id="tab-${g.slug}" aria-controls="integ-panel" aria-selected="${i === 0}" tabindex="${i === 0 ? 0 : -1}" data-i="${i}">
-      <span class="tab__plate"><img src="${logo(P[g.slug])}" alt=""></span>
+      <span class="tab__plate">${lg(P[g.slug], "", false)}</span>
       <span><span class="tab__name">${g.name}</span><span class="tab__mods">${g.modules.map(m => m.id).join(" · ")}</span></span>
       <span class="tab__n">${n}</span></button>`;
   }).join("");
@@ -85,7 +91,7 @@
     $$(".tab", tabs).forEach((t, k) => { t.setAttribute("aria-selected", k === i); t.tabIndex = k === i ? 0 : -1; });
     $("#integ-panel").setAttribute("aria-labelledby", `tab-${g.slug}`);
     const img = $("#integ-logo"); img.style.opacity = 0;
-    setTimeout(() => { img.src = logo(p); img.alt = p.name; img.style.opacity = 1; }, reduce ? 0 : 160);
+    setTimeout(() => { img.src = logo(p); img.alt = p.name; setFit(img, p.logo); img.style.opacity = 1; }, reduce ? 0 : 160);
     let n = 0;
     body.innerHTML = g.modules.map(m => `
       <div class="mod">
@@ -118,7 +124,7 @@
   grid.innerHTML = PARTNERS.map(p => `
     <li class="card" data-slug="${p.slug}" data-cat="${p.cat}">
       <button class="card__btn" data-open="${p.slug}">
-        <span class="card__plate"><img src="${logo(p)}" alt="" loading="lazy"></span>
+        <span class="card__plate">${lg(p)}</span>
         <span class="card__top"><span class="card__name">${p.name}</span>${p.integ ? '<span class="badge">Integração nativa</span>' : ""}</span>
         <span class="card__short">${p.short}</span>
         <span class="card__foot"><span>${CAT[p.cat]}</span><span class="card__go"><i class="arr"></i></span></span>
@@ -170,7 +176,7 @@
   const openDrawer = slug => {
     const p = P[slug]; if (!p) return;
     lastFocus = document.activeElement;
-    $("#dr-logo").src = logo(p); $("#dr-logo").alt = p.name;
+    $("#dr-logo").src = logo(p); $("#dr-logo").alt = p.name; setFit($("#dr-logo"), p.logo);
     $("#dr-cat").textContent = CAT[p.cat];
     $("#dr-name").textContent = p.name;
     $("#dr-short").textContent = p.short;
