@@ -351,6 +351,7 @@ em{font-style:normal}
 .consent input{width:20px;height:20px;margin:0;accent-color:var(--royal)}
 .consent a{color:var(--royal);text-decoration:underline;text-underline-offset:2px}
 .consent .fld__err{grid-column:2}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
 .lf__go{grid-column:1/-1;width:100%;margin-top:6px}
 .lf__go:disabled{opacity:.7;cursor:progress}
 .lf__err{grid-column:1/-1;margin:0;padding:12px 14px;border-radius:12px;background:#fff1f1;color:#b4232a;font-size:14px}

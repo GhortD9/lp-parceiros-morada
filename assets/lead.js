@@ -174,6 +174,24 @@
       .then(s => { clearTimeout(timer); return s; });
   };
 
+  // aviso por e-mail (Resend), em paralelo ao HubSpot
+  const toEmail = () => {
+    if (!C.EMAIL_ENDPOINT || location.protocol === "file:") return Promise.resolve("sem_endpoint");
+    const body = {
+      nome: $("#l-nome").value.trim(), email: $("#l-email").value.trim(), empresa: $("#l-empresa").value.trim(),
+      cargo: $("#l-cargo").value, telefone: tel.value.trim(), tipoEmpresa: $("#l-tipo").value,
+      partnerName: partner ? P[partner].name : (mode === "parceiro" ? "Quero ser parceiro" : ""),
+      tipo: mode, ponto: ponto(), pagina: location.href.split("#")[0],
+      utm: Object.fromEntries(UTM.map(k => [k, utm(k)]))
+    };
+    const ctl = window.AbortController ? new AbortController() : null;
+    const timer = setTimeout(() => ctl && ctl.abort(), C.TIMEOUT);
+    return fetch(C.EMAIL_ENDPOINT, { method: "POST", headers: { "Content-Type": "application/json" }, keepalive: true, signal: ctl ? ctl.signal : undefined, body: JSON.stringify(body) })
+      .then(r => r.ok ? "ok" : r.text().then(t => { console.error("[LP Parceiros] e-mail recusado", r.status, t); return "erro_" + r.status; }))
+      .catch(err => { console.error("[LP Parceiros] e-mail não respondeu", err); return "erro_rede"; })
+      .then(s => { clearTimeout(timer); return s; });
+  };
+
   form.addEventListener("submit", e => {
     e.preventDefault();
     if (go.disabled) return;
@@ -183,10 +201,13 @@
     let err = $("#lead-err"); err && err.remove();
     if (bad) { bad.focus(); track("lp_parceiros_form_invalido", { campo: bad.name }); return; }
     go.disabled = true; go.textContent = "Enviando…";
-    toHubSpot().then(status => {
-      track("lp_parceiros_lead", { hubspot: status, tipo: mode, parceiro: partner, ponto: ponto(), utm_source: utm("utm_source"), utm_medium: utm("utm_medium"), utm_campaign: utm("utm_campaign") });
+    const robo = !!$("#l-site").value;                                  // campo-isca preenchido: finge sucesso, não envia
+    Promise.all(robo ? ["isca", "isca"] : [toHubSpot(), toEmail()]).then(([hs, mail]) => {
+      const ok = s => s === "ok" || s === "simulado" || s === "isca";
+      const status = ok(hs) || ok(mail) ? "ok" : hs;                    // basta um dos dois chegar
+      track("lp_parceiros_lead", { hubspot: hs, email: mail, tipo: mode, parceiro: partner, ponto: ponto(), utm_source: utm("utm_source"), utm_medium: utm("utm_medium"), utm_campaign: utm("utm_campaign") });
       go.disabled = false; go.innerHTML = `${MODES[mode].btn} <i class="arr" aria-hidden="true"></i>`;
-      if (status === "ok" || status === "simulado") {
+      if (status === "ok") {
         const nome = $("#l-nome").value.trim().split(" ")[0];
         $("#lead-done-t").textContent = `Recebemos, ${nome}.`;
         $("#lead-done-p").textContent = mode === "parceiro"

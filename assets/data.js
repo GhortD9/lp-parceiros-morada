@@ -10,7 +10,8 @@ window.LEAD_CONFIG = {
   PONTO_SEJA_PARCEIRO: "lp_parceiros_seja_parceiro",
   GTM_ID: "GTM-WKLLFZGF",
   HOSTS_PRODUCAO: /(^|\.)morada\.ai$/i,                     // GTM e rastreio do HubSpot só carregam aqui
-  TIMEOUT: 6000
+  TIMEOUT: 6000,
+  EMAIL_ENDPOINT: "/api/send-email"                          // aviso por e-mail (Resend) — função em api/send-email.js; "" desliga
 };
 
 window.CATEGORIES = [
